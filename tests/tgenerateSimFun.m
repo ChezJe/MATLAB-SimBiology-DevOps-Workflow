@@ -54,9 +54,6 @@ classdef tgenerateSimFun < matlab.unittest.TestCase
                 testCase.MATfilefullpath = generateSimFun();
             else
                 testCase.MATfilefullpath = generateSimFun(MATfilename);
-
-                % delete file with testCase.addTeardown
-                testCase.addTeardown(@delete,testCase.MATfilefullpath);
             end
             testCase.LoadedData = load(testCase.MATfilefullpath);
 
