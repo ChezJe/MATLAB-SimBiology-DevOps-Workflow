@@ -44,15 +44,15 @@ classdef tgenerateSimFun < matlab.unittest.TestCase
 
         function classSetup(testCase, MATfilename)
             % Set up shared state for all tests.
-
-            % Generate the simulation function in a working folder
             import matlab.unittest.fixtures.WorkingFolderFixture;
-            testCase.applyFixture(WorkingFolderFixture);
 
             % Call generateSimFun without or with input argument
             if isempty(MATfilename)
                 testCase.MATfilefullpath = generateSimFun();
             else
+                % Generate the simulation function in a working folder
+                testCase.applyFixture(WorkingFolderFixture);
+
                 testCase.MATfilefullpath = generateSimFun(MATfilename);
             end
 
